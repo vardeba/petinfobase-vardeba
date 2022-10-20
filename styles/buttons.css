@@ -1,0 +1,128 @@
+.btn-1 {
+    height: var(--button-height-1);
+    padding: var(--padding-btn-1);
+    background-color: var(--brand100);
+    border: 0.0625rem solid var(--brand100);
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: var(--text-1);
+    font-weight: var(--font-weight-2);
+    color: var(--gray900);
+}
+
+.btn-1:hover {
+    background-color: var(--brand200);
+    border: 0.0625rem solid var(--brand200);
+}
+
+.btn-2 {
+    height: var(--button-height-2);
+    padding: var(--padding-btn-2);
+    background-color: var(--gray900);
+    border: 0.0625rem solid var(--gray600);
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: var(--text-2);
+    font-weight: var(--font-weight-2);
+    color: var(--gray100);
+}
+
+.btn-2:hover {
+    background-color: var(--gray800);
+}
+
+.btn-3 {
+    height: var(--button-height-2);
+    padding: var(--padding-btn-2);
+    background-color: var(--gray700);
+    border: 0.0625rem solid var(--gray700);
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: var(--text-2);
+    font-weight: var(--font-weight-2);
+    color: var(--gray400);
+}
+
+.btn-3:hover {
+    background-color: var(--gray600);
+    border: 0.0625rem solid var(--gray600);
+    color: var(--gray300);
+}
+
+.btn-4 {
+    height: var(--button-height-1);
+    padding: var(--padding-btn-2);
+    background-color: var(--gray700);
+    border: 0.0625rem solid var(--gray700);
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: var(--text-2);
+    font-weight: var(--font-weight-2);
+    color: var(--gray400);
+}
+
+.btn-4:hover {
+    background-color: var(--gray600);
+    border: 0.0625rem solid var(--gray600);
+    color: var(--gray300);
+}
+
+.btn-5 {
+    height: var(--button-height-1);
+    padding: var(--padding-btn-2);
+    background-color: var(--gray900);
+    border: 0.0625rem solid var(--gray600);
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: var(--text-2);
+    font-weight: var(--font-weight-2);
+    color: var(--gray100);
+}
+
+.btn-5:hover {
+    background-color: var(--gray800);
+}
+
+.btn-6 {
+    height: var(--button-height-1);
+    padding: var(--padding-btn-1);
+    background-color: var(--alert100);
+    border: 0.0625rem solid var(--alert100);
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: var(--text-1);
+    font-weight: var(--font-weight-2);
+    color: var(--gray900);
+}
+
+.btn-6:hover {
+    background-color: var(--alert200);
+    border: 0.0625rem solid var(--alert200);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
