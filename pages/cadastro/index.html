@@ -12,36 +12,32 @@
 </head>
 <body>
     <main>
-        <div>
-            <header>
-                <h1>Petinfo</h1>
-                <h2>Ooooooba!</h2>
-                <p>Agora vamos poder contribuir para o bem estar do seu pet por meio do conhecimento</p>
-                <img src="../../assets/cadastro.svg" alt="Pets">
+        <section class="section__header">
+            <header class="header">
+                <h1 class="header-title">Petinfo</h1>
+                <h2 class="header-title-2">Ooooooba!</h2>
+                <p class="header-description">Agora vamos poder contribuir para o bem estar do seu pet por meio do conhecimento</p>
+                <img class="header-img" src="../../assets/cadastro.svg" alt="Pets">
             </header>
-        </div>
-        <div>
-            <header>
-                <h2>Cadastro</h2>
-                <a href="../login/index.html">
-                    <button>Voltar para o login</button>
-                </a>
-            </header>
-            <form>
-                <label for="user">Usuário</label>
-                <input type="text" id="" placeholder="Digite seu usuário aqui">
-                <label for="user">Email</label>
-                <input type="text" id="" placeholder="Digite seu email aqui">
-                <label for="user">Link da foto do perfil</label>
-                <input type="text" id="" placeholder="Insira o link aqui">
-                <label for="user">Senha</label>
-                <input type="text" id="" placeholder="Digite sua senha aqui">
-                <button>Cadastrar</button>
+        </section>
+        <section class="cadastro">
+            <div class="header-2">
+                <h2 class="header-2-title">Cadastro</h2>
+                <button class="header-2-button btn-2 back-to-login">Voltar para o login</button>
+            </div>
+            <form class="form-container">
+                <label class="label" for="username">Usuário</label>
+                <input class="input-username" type="text" name="username" id="username" placeholder="Digite seu usuário aqui">
+                <label class="label" for="email">Email</label>
+                <input class="input-email" type="text" name="email" id="email" placeholder="Digite seu email aqui">
+                <label class="label" for="avatar">Link da foto do perfil</label>
+                <input class="input-avatar" type="text" name="avatar" id="avatar" placeholder="Insira o link aqui">
+                <label class="label" for="password">Senha</label>
+                <input class="input-password" type="password" name="password" id="password" placeholder="Digite sua senha aqui">
+                <button class="btn-1" type="submit">Cadastrar</button>
+                <button class="btn-5 back-to-login mrg_tp">Voltar para o login</button>
             </form>
-            <a href="../login/index.html">
-                <button>Voltar para o login</button>
-            </a>
-        </div>
+        </section>
     </main>
     <script type="module" src="./index.js"></script>
 </body>

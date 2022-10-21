@@ -1,1 +1,12 @@
-/* Desenvolva seu código aqui */
+import { dinamicModal } from "../../scripts/modal.js";
+
+// dinamicModal(paragrafy);
+
+
+
+
+
+
+
+
+

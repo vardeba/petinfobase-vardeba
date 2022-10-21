@@ -1,0 +1,25 @@
+.backgroundModal {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+}
+
+.modalContainer {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50rem;
+    padding: 1.5rem;
+    margin: 0 auto;
+    background-color: var(--gray900);
+    border-radius: 0.5rem;
+}
+
+.closeModal {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+}
+

@@ -1,1 +1,104 @@
-/* Desenvolva a estilização da sua página aqui */
+.container {
+    width: 50rem;
+}
+
+body {
+    min-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    margin: 0 auto;
+    gap: 5rem;
+}
+
+.section__header {
+    width: 20rem;
+}
+
+.header-title {
+    font-size: var(--title-1);
+    font-weight: var(--font-weight-2);
+    line-height: var(--line-height);
+    color: var(--gray100);
+    margin-bottom: 1.5rem;
+}
+
+.header-title-2 {
+    font-size: var(--title-1);
+    font-weight: var(--font-weight-1);
+    line-height: var(--line-height);
+    color: var(--brand100);
+    margin-bottom: 1.5rem;
+}
+
+.header-description {
+    font-size: var(--text-1);
+    font-weight: var(--font-weight-3);
+    line-height: var(--line-height);
+    color: var(--gray300);
+    margin-bottom: 1.5rem;
+}
+
+.cadastro {
+    width: 23.0625rem;
+    padding: 2.75rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    border: 0.0625rem solid #D9D9D9;
+}
+
+.header-2 {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.header-2-title {
+    font-size: var(--title-3);
+    font-weight: var(--font-weight-2);
+    line-height: var(--line-height);
+    color: #1E1E1E;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.label {
+    font-size: var(-text-1);
+    font-weight: var(--font-weight-2);
+    line-height: var(--line-height);
+    color: var(--gray100);
+    margin-bottom: 0.75rem;
+}
+
+input {
+    height: var(--input-height);
+    padding-left: 1rem;
+    margin-bottom: 1.625rem;
+    background-color: var(--gray800);
+    border-radius: var(--radius);
+    border: 0.0625rem solid var(--gray600);
+    font-size: var(-text-1);
+    font-weight: var(--font-weight-3);
+    line-height: var(--line-height);
+    color: var(--gray400);
+}
+
+input:focus {
+    background-color: var(--gray900);
+    border: 0.0625rem solid var(--gra1600);
+    color: var(--gray100);
+}
+
+.mrg_tp {
+    margin-top: 1.625rem;
+}

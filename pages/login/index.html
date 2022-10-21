@@ -12,32 +12,33 @@
 </head>
 <body>
     <main>
-        <div>
-            <header>
-                <h1>Petinfo</h1>
-                <h2>Ooooooba!</h2>
-                <p>Agora vamos poder contribuir para o bem estar do seu pet por meio do conhecimento</p>
-                <img src="../../assets/login.svg" alt="Pets">
+        <section class="section__header">
+            <header class="header">
+                <h1 class="header-title">Petinfo</h1>
+                <h2 class="header-title-2"><span>Amor</span> e <span>carinho</span> por meio do conhecimento</h2>
+                <p class="header-description">Todas as informações para melhorar a vida do seu pet em um só lugar</p>
+                <img class="header-img" src="../../assets/login.svg" alt="Pets">
             </header>
-        </div>
-        <div>
-            <header>
-                <h2>Login</h2>
+        </section>
+        <section class="login">
+            <header class="header-2">
+                <h2 class="header-2-title">Login</h2>
             </header>
-            <form>
-                <label for="user">Usuário</label>
-                <input type="text" id="" placeholder="Digite seu usuário aqui">
-                <label for="user">Senha</label>
-                <input type="text" id="" placeholder="Digite sua senha aqui">
-                <p>A senha incorreta</p>
-                <button>Acessar</button>
+            <form class="form-container">
+                <label class="label" for="username">Usuário</label>
+                <input class="input-username" type="text" name="username" id="username" placeholder="Digite seu usuário aqui">
+                <label class="label" for="username">Usuário</label>
+                <input class="input-username" type="text" name="username" id="username" placeholder="Digite seu usuário aqui">
+                <p class="wrong-password">A senha está incorreta</p>
+                <button class="btn-1 mrg_bt" type="submit">Acessar</button>
             </form>
-            <h3>Ainda não possui conta?</h3>
-            <p>Clicando no botão abaixo, você pode se cadastrar rapidamente</p>
+            <p class="not-acount">Ainda não possui conta?</p>
+            <p class="not-acount-description">Clicando no botão abaixo, você pode se cadastrar rapidamente</p>
+            <button class="back-to-cadastro btn-5">Cadastrar</button>
             <a href="../cadastro/index.html">
-                <button>Cadastrar</button>
+                
             </a>
-        </div>
+        </section>
     </main>
     <script type="module" src="./index.js"></script>
 </body>

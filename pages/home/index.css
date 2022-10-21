@@ -92,7 +92,7 @@ body {
     background-image: url(../../assets/sign-out.svg);
     background-repeat: no-repeat;
     background-position: 1rem;
-
+    cursor: pointer;
 }
 
 .sign-out {
@@ -238,16 +238,6 @@ main {
 .div__post__article__modal:hover {
     text-decoration: underline;
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
