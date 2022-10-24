@@ -24,6 +24,8 @@ export function dinamicModal(content){
 }
 
 export function showPostModal(post){
+    let date =  new Date(post.createdAt);
+
     const liPost = document.createElement('li');
     liPost.classList.add('li__post');
 
@@ -38,7 +40,7 @@ export function showPostModal(post){
 
     const imgPostUser = document.createElement('img');
     imgPostUser.classList.add('img_user');
-    imgPostUser.setAttribute('src', `${post.avatar}`);
+    imgPostUser.setAttribute('src', `${post.user.avatar}`);
     imgPostUser.setAttribute('alt', `${post.user.username}`);
 
     const h3PostUserName = document.createElement('h3');
@@ -51,7 +53,7 @@ export function showPostModal(post){
 
     const spanPostDate = document.createElement('span');
     spanPostDate.classList.add('div__post__header__date');
-    spanPostDate.innerText = 'Outubro de 2022';
+    spanPostDate.innerText = `${new Intl.DateTimeFormat('pt-BR', { month: 'long', year: 'numeric'} ).format(date)}`;
 
     const articlePost = document.createElement('article');
     articlePost.classList.add('div__post__article');

@@ -1,6 +1,9 @@
 import { deletePostModal, dinamicModal, editPostModal, showPostModal } from "./modal.js";
+import { userInSession } from "../pages/home/index.js";
 
 export function showPost(post){
+    let date =  new Date(post.createdAt);
+
     const liPost = document.createElement('li');
     liPost.classList.add('li__post');
     liPost.setAttribute('id', `${post.id}`);
@@ -16,7 +19,7 @@ export function showPost(post){
 
     const imgPostUser = document.createElement('img');
     imgPostUser.classList.add('img_user');
-    imgPostUser.setAttribute('src', `${post.avatar}`);
+    imgPostUser.setAttribute('src', `${post.user.avatar}`);
     imgPostUser.setAttribute('alt', `${post.user.username}`);
 
     const h3PostUserName = document.createElement('h3');
@@ -29,7 +32,7 @@ export function showPost(post){
 
     const spanPostDate = document.createElement('span');
     spanPostDate.classList.add('div__post__header__date');
-    spanPostDate.innerText = 'Outubro de 2022';
+    spanPostDate.innerText = `${new Intl.DateTimeFormat('pt-BR', { month: 'long', year: 'numeric'} ).format(date)}`;
 
     const divPostHeaderButtons = document.createElement('div');
     divPostHeaderButtons.classList.add('post__header__buttons');
@@ -37,6 +40,13 @@ export function showPost(post){
     const editPostHeaderButton = document.createElement('button');
     editPostHeaderButton.classList = 'btn-2 post__header__editButton openModalEdit';
     editPostHeaderButton.innerText = 'Editar'
+    if (userInSession.id != post.user.id){
+        editPostHeaderButton.classList.remove('show-btn');
+        editPostHeaderButton.classList.add('hide-btn');
+    }else{
+        editPostHeaderButton.classList.remove('hide-btn');
+        editPostHeaderButton.classList.add('show-btn');
+    }
     editPostHeaderButton.addEventListener('click', () => {
         dinamicModal(editPostModal(post));
     })
@@ -44,6 +54,13 @@ export function showPost(post){
     const deletePostHeaderButton = document.createElement('button');
     deletePostHeaderButton.classList = 'btn-3 post__header__deleteButton openModalDelete';
     deletePostHeaderButton.innerText = 'Excluir';
+    if (userInSession.id != post.user.id){
+        deletePostHeaderButton.classList.remove('show-btn');
+        deletePostHeaderButton.classList.add('hide-btn');
+    }else{
+        deletePostHeaderButton.classList.remove('hide-btn');
+        deletePostHeaderButton.classList.add('show-btn');
+    }
     deletePostHeaderButton.addEventListener('click', () => {
         dinamicModal(deletePostModal(post));
     })

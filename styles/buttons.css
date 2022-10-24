@@ -120,9 +120,13 @@
     color: var(--gray300);
 }
 
+.hide-btn {
+    visibility: hidden;
+}
 
-
-
+.show-btn {
+    visibility: visible;
+}
 
 
 
