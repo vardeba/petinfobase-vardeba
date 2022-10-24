@@ -6,6 +6,8 @@ body {
     min-width: 100vw;
     min-height: 100vh;
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
 }
 
@@ -110,6 +112,13 @@ input:focus {
     line-height: var(--line-height);
     color: var(--alert100);
     margin-bottom: 1.625rem;
+}
+
+.show-wrong-password {
+    visibility: visible;
+}
+
+.hide-wrong-password {
     visibility: hidden;
 }
 
@@ -135,6 +144,18 @@ input:focus {
     margin-bottom: 1.625rem;
 }
 
+.loading {
+    animation: spinner 1s infinite linear;
+}
+
+@keyframes spinner {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
 
 
 

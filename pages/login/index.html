@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../styles/globalStyles.css">
     <link rel="stylesheet" href="../../styles/buttons.css">
-    <link rel="stylesheet" href="../../styles/containers.css">
     <link rel="stylesheet" href="./index.css">
     <title>Petinfo - Login</title>
+    <link rel="shortcut icon" href="../../assets/logo.png" type="image/x-icon">
 </head>
 <body>
     <main>
@@ -25,19 +25,16 @@
                 <h2 class="header-2-title">Login</h2>
             </header>
             <form class="form-container">
-                <label class="label" for="username">Usuário</label>
-                <input class="input-username" type="text" name="username" id="username" placeholder="Digite seu usuário aqui">
-                <label class="label" for="username">Usuário</label>
-                <input class="input-username" type="text" name="username" id="username" placeholder="Digite seu usuário aqui">
-                <p class="wrong-password">A senha está incorreta</p>
-                <button class="btn-1 mrg_bt" type="submit">Acessar</button>
+                <label class="label" for="email">Usuário</label>
+                <input class="input-email" type="email" name="email" id="email" placeholder="Digite seu usuário aqui">
+                <label class="label" for="password">Usuário</label>
+                <input class="input-password" type="password" name="password" id="password" placeholder="Digite seu usuário aqui">
+                <p class="wrong-password hide-wrong-password">A senha está incorreta</p>
+                <button class="btn-1 mrg_bt btn-login" type="submit">Acessar</button>
             </form>
             <p class="not-acount">Ainda não possui conta?</p>
             <p class="not-acount-description">Clicando no botão abaixo, você pode se cadastrar rapidamente</p>
             <button class="back-to-cadastro btn-5">Cadastrar</button>
-            <a href="../cadastro/index.html">
-                
-            </a>
         </section>
     </main>
     <script type="module" src="./index.js"></script>

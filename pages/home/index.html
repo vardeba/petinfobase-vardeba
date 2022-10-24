@@ -7,15 +7,18 @@
     <link rel="stylesheet" href="../../styles/globalStyles.css">
     <link rel="stylesheet" href="../../styles/buttons.css">
     <link rel="stylesheet" href="../../styles/modal.css">
+    <link rel="stylesheet" href="../../styles/toast.css">
+    
     <link rel="stylesheet" href="./index.css">
     <title>Petinfo - Home</title>
+    <link rel="shortcut icon" href="../../assets/logo.png" type="image/x-icon">
 </head>
 <body>
     <div class="div__header">
         <header class="header__header container">
             <h1 class="header__title">Petinfo</h1>
             <nav class="header__nav">
-                <button class="header__nav__button btn-1">Criar publicação</button>
+                <button class="create-post-modal header__nav__button btn-1">Criar publicação</button>
                 <div class="header__nav__div">
                     <figure class="header__nav__div__figure">
                         <img class="img__username" src="../../assets/user_ex.jpg" alt="Foto de user">
@@ -39,27 +42,6 @@
     </section>
     <main>
         <ul class="ul__posts container">
-            <li class="li__post">
-                <section class="section__post__header">
-                    <div class="post__header__user">
-                        <figure class="div__post__header_figure">
-                            <img class="img_user" src="../../assets/user_ex.jpg" alt="Foto de user">
-                        </figure>
-                        <h3 class="div__post__header__username">Samuel Leão</h3>
-                        <span class="divisor">|</span>
-                        <span class="div__post__header__date">Outubro de 2022</span>
-                    </div>
-                    <div class="post__header__buttons">
-                        <button class="btn-2 post__header__editButton">Editar</button>
-                        <button class="btn-3 post__header__deleteButton">Excluir</button>
-                    </div>
-                </section>
-                <article class="div__post__article">
-                    <h2 class="div__post__article__title">Outubro Rosa: Detalhes sobre a importância da prevenção do câncer de mama em cadelas e gatas</h2>
-                    <p class="div__post__article__p">Assim como em humanos, cadelas e gatas também podem desenvolver câncer de mama. Ainda hoje, para ambas as espécies, o câncer de mama tem maior...</p>
-                    <span id="" class="div__post__article__modal">Acessar publicação</span>
-                </article>
-            </li>
         </ul>
     </main>
     <script type="module" src="./index.js"></script>
