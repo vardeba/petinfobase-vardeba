@@ -22,6 +22,7 @@ eventRegister();
 
 async function createUser(body){
     try{
+        loginAnimationStart();
         const request = await fetch(`${baseURL}users/create`, {
             method: "POST",
             headers: {
@@ -38,11 +39,39 @@ async function createUser(body){
             }, 4000);
         }
     }catch(err){
+        toast("already");
+        loginAnimationStop();
         console.log(err);
     };
 };
 
+function loginAnimationStart(){
+    const button = document.querySelector('.btn-register');
+    button.innerHTML = '';
+    const img = document.createElement('img');
+    img.setAttribute('src', '../../assets/spinner.svg');
+    img.setAttribute('alt', "spinner");
+    img.classList.add('loading');
+    button.appendChild(img);
+}
 
+function loginAnimationStop(){
+    const button = document.querySelector('.btn-register');
+    button.innerHTML = '';
+    button.classList = "btn-1 btn-register";
+    button.innerText = "Cadastrar";
+};
+
+function goToLogin(){
+    const backToLogin = document.querySelectorAll('.back-to-login');
+    backToLogin.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            window.location.replace('../login/index.html');
+        })
+    })
+}
+
+goToLogin();
 
 
 

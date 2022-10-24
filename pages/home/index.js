@@ -6,8 +6,6 @@ export const baseURL = "http://localhost:3333/";
 
 export let userInSession = "";
 
-await getTokenFromLocalStorage();
-
 const ulPosts = document.querySelector('.ul__posts');
 
 export async function showPosts(){
@@ -40,12 +38,13 @@ async function getTokenFromLocalStorage(){
 
 async function getUserDataOnAPI(){
     const token = await getTokenFromLocalStorage();
+    console.log(token.token);
     try{
         const user = await fetch(`${baseURL}users/profile`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`,
+                "Authorization": `Bearer ${token.token}`,
             },
         });
         if (user.ok == false){
@@ -62,8 +61,9 @@ async function getUserDataOnAPI(){
 
 await getUserDataOnAPI();
 
-const verifyPermission = () => {
-    if (globalToken == ""){
+const verifyPermission = async () => {
+    const tokenLocalSorage = await getTokenFromLocalStorage();
+    if (!tokenLocalSorage){
         window.location.replace("../login/index.html");
     };
 };

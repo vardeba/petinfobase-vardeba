@@ -154,6 +154,13 @@
     color: var(--sucess100);
 }
 
+.acountNotFound {
+    font-size: var(--text-1);
+    font-weight: var(--font-weight-2);
+    line-height: var(--line-height);
+    color: var(--alert100);
+}
+
 .redirectMessage {
     font-size: var(--text-2);
     font-weight: var(--font-weight-3);

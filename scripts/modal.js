@@ -292,7 +292,57 @@ export function postDeletedModal(){
     return divDeleteSuccessModal;
 }
 
+export function userNotFoundModal(){
+    const divUserNotFoundModal = document.createElement('div');
+    divUserNotFoundModal.classList.add('successModal');
 
+    const divHeaderUserNotFoundModal = document.createElement('div');
+    divHeaderUserNotFoundModal.classList.add('headerSuccessModal');
+
+    const imgHeaderUserNotFoundModal = document.createElement('img');
+    imgHeaderUserNotFoundModal.setAttribute('src', "../../assets/errorIcon.png");
+    imgHeaderUserNotFoundModal.setAttribute('alt', "Erro!");
+
+
+    const pUserNotFoundModal = document.createElement('div');
+    pUserNotFoundModal.classList.add('acountNotFound');
+    pUserNotFoundModal.innerText = "Usuário não encontrado";
+
+    const pRedirectMessageUserNotFoundModal = document.createElement('div');
+    pRedirectMessageUserNotFoundModal.classList.add('redirectMessage');
+    pRedirectMessageUserNotFoundModal.innerHTML = `Verifique se digitou o usuário e senha corretamente. Caso não ainda não seja registrado: <a href="../cadastro/index.html">Acessar página de cadastro</a>`;
+
+    divHeaderUserNotFoundModal.append(imgHeaderUserNotFoundModal, pUserNotFoundModal);
+    divUserNotFoundModal.append(divHeaderUserNotFoundModal, pRedirectMessageUserNotFoundModal);
+
+    return divUserNotFoundModal;
+}
+
+export function alreadyModal(){
+    const divAlreadyModal = document.createElement('div');
+    divAlreadyModal.classList.add('deleteSuccessModal');
+
+    const divHeaderAlreadyModal = document.createElement('div');
+    divHeaderAlreadyModal.classList.add('headerDeleteSuccessModal');
+
+    const imgHeaderAlreadyModal = document.createElement('img');
+    imgHeaderAlreadyModal.setAttribute('src', "../../assets/errorIcon.png");
+    imgHeaderAlreadyModal.setAttribute('alt', "Usuário já Existe");
+
+
+    const pTitleAlreadyModal = document.createElement('div');
+    pTitleAlreadyModal.classList.add('acountCreated');
+    pTitleAlreadyModal.innerText = "Algo deu errado!";
+
+    const pAlreadyModal = document.createElement('div');
+    pAlreadyModal.classList.add('redirectMessage');
+    pAlreadyModal.innerText = "Talvez já exista um usuário com os dados informados! Verifique os dados e tente novamente.";
+
+    divHeaderAlreadyModal.append(imgHeaderAlreadyModal, pTitleAlreadyModal);
+    divAlreadyModal.append(divHeaderAlreadyModal, pAlreadyModal);
+
+    return divAlreadyModal;
+}
 
 
 

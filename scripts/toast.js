@@ -1,4 +1,4 @@
-import { postDeletedModal, userSuccessModal } from "./modal.js";
+import { postDeletedModal, userSuccessModal, userNotFoundModal, alreadyModal } from "./modal.js";
 
 export const toast = (title) => {
     const body = document.querySelector('body');
@@ -8,7 +8,14 @@ export const toast = (title) => {
 
     if (title == "acount"){
         container.appendChild(userSuccessModal());
-    }else{
+    }
+    if (title == "notAcount"){
+        container.appendChild(userNotFoundModal());
+    }
+    if (title == "already"){
+        container.appendChild(alreadyModal());
+    }
+    if (title == "post"){
         container.appendChild(postDeletedModal());
     }
 

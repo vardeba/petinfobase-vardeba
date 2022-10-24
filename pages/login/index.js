@@ -1,25 +1,29 @@
+import { toast } from "../../scripts/toast.js";
+
 const baseURL = "http://localhost:3333/";
 
 export let globalToken = "";
 
 const eventLogin = () => {
     const form = document.querySelector('form');
+
     const elements = [...form.elements];
+
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
         const body = {};
         elements.forEach((elem) => {
             if (elem.tagName == "INPUT" && elem.value !== ""){
                 body[elem.id] = elem.value
-            }
-        })
+            };
+        });
         await login(body);
-    })
-}
+    });
+};
 
 eventLogin();
 
-export function loginAnimationStart(){
+function loginAnimationStart(){
     const button = document.querySelector('.btn-login');
     button.innerHTML = '';
     const img = document.createElement('img');
@@ -29,21 +33,21 @@ export function loginAnimationStart(){
     button.appendChild(img);
 }
 
-export function loginAnimationStop(){
+function loginAnimationStop(){
     const button = document.querySelector('.btn-login');
     button.innerHTML = '';
     button.classList = "btn-1 mrg_bt btn-login";
     button.innerText = "Acessar";
 };
 
-function redirect(){
+function goToRegister(){
     const register = document.querySelector('.back-to-cadastro');
     register.addEventListener('click', () => {
         window.location.replace('../cadastro/index.html');
     })
 }
 
-redirect();
+goToRegister();
 
 async function login(body){
     const wrongPassword = document.querySelector('.wrong-password');
@@ -60,15 +64,15 @@ async function login(body){
             throw new Error("Algo deu errado!")
         }else{
             const response = await request.json();
-            globalToken = response;
-            const userToken = JSON.stringify(globalToken);
+            const userToken = JSON.stringify(response);
             localStorage.setItem("userToken", userToken);
             setTimeout(() => {
                 window.location.replace("../../pages/home/index.html");
             }, 2000);
-            return globalToken;
+            return response;
         }
     }catch(err){
+        toast("notAcount")
         wrongPassword.classList.remove('hide-wrong-password');
         wrongPassword.classList.add('show-wrong-password');
         loginAnimationStop();
