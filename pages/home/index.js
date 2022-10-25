@@ -110,7 +110,6 @@ async function getUserDataOnAPI(){
         }else{
             const response = await user.json();
             userInSession = await response;
-            console.log(userInSession);
         };
     }catch(err){
         console.log(err);
@@ -141,65 +140,5 @@ export async function getPostsOnAPI(){
 
     return posts;
 };
-
-// const bodyex = {
-//     title: "teste 1",
-//     content: "teste 1"
-// };
-
-// createPostOnAPI(bodyex);
-
-// export async function createPostOnAPI(data){
-//     const token = await getTokenFromLocalStorage();
-//     const response = await fetch(`${baseURL}posts/create`, {
-//         method: "POST",
-//         headers: {
-//             "Content-Type": "application/json",
-//             Authorization: `Bearer ${token.token}`,
-//         },
-//         body: JSON.stringify(data),
-//     })
-//     .then((response) => response.json())
-//     .then((responseJson) => responseJson)
-//     .catch((error) => error);
-
-//     return response;
-// };
-
-// export async function updatePostOnAPI(data, postId){
-//     const token = await getTokenFromLocalStorage();
-//     const response = await fetch(`${baseURL}posts/${postId}`, {
-//         method: "PATCH",
-//         headers: {
-//             "Content-Type": "application/json",
-//             Authorization: `Bearer ${token.token}`,
-//         },
-//         body: JSON.stringify(data),
-//     })
-//     .then((response) => response.json())
-//     .then((responseJson) => responseJson)
-//     .catch((error) => error);
-
-//     return response;
-// };
-
-export async function deletePostOnAPI(postId){
-    const token = await getTokenFromLocalStorage();
-    const response = await fetch(`${baseURL}posts/${postId}`, {
-        method: "DELETE",
-        headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token.token}`,
-        },
-    })
-    .then((response) => response.json())
-    .then((responseJson) => responseJson)
-    .catch((error) => error);
-
-    return response;
-};
-
-
-
 
 

@@ -1,3 +1,5 @@
+import { toast } from "./toast.js";
+
 const body = document.querySelector('body');
 
 const baseURL = "http://localhost:3333/";
@@ -268,8 +270,15 @@ export function deletePostModal(post){
     buttonDeletePostModalDelete.classList = "btn-6 delete-button";
     buttonDeletePostModalDelete.setAttribute('id', `${post.id}`);
     buttonDeletePostModalDelete.innerText = "Sim, excluir este post";
-    buttonDeletePostModalDelete.addEventListener('click', (event) => {
-        event.preventDefault();
+    buttonDeletePostModalDelete.addEventListener('click', async () => {
+        const idPost = document.querySelector('.delete-post-modal')
+        console.log(idPost);
+        await deletePostOnAPI(idPost.id);
+        toast("post");
+        setTimeout(() => {
+            window.location.replace('./index.html')
+        }, 4000);
+
     });
 
     divDeletePostModalButtons.append(buttonDeletePostModalCancel, buttonDeletePostModalDelete);
@@ -382,8 +391,6 @@ export function alreadyModal(){
     return divAlreadyModal;
 }
 
-
-
 async function getTokenFromLocalStorage(){
     const localStorageTokenJSON = localStorage.getItem('userToken');
     if (localStorageTokenJSON){
@@ -391,8 +398,6 @@ async function getTokenFromLocalStorage(){
         return localStorageData;
     };
 }
-
-
 
 async function createPostOnAPI(data){
     const token = await getTokenFromLocalStorage();
@@ -426,6 +431,20 @@ async function updatePostOnAPI(data, postId){
     return response;
 };
 
+export async function deletePostOnAPI(postId){
+    const token = await getTokenFromLocalStorage();
+    const response = await fetch(`${baseURL}posts/${postId}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token.token}`,
+        },
+    })
+    .then((response) => response.json())
+    .then((responseJson) => responseJson)
+    .catch((error) => error);
+    return response;
+};
 
 
 
