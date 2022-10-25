@@ -41,6 +41,11 @@
     flex-direction: column;
 }
 
+.form-edit {
+    display: flex;
+    flex-direction: column;
+}
+
 .label-modal-edit {
     font-size: var(--text-1);
     font-weight: var(--font-weight-2);
@@ -49,7 +54,7 @@
     margin-bottom: 0.5rem;
 }
 
-#textarea-post-title {
+.textarea-post-title {
     height: 2.75rem;
     padding: 0.5rem 1rem;
     border-radius: var(--radius);
@@ -62,12 +67,12 @@
     margin-bottom: 1rem;
 }
 
-#textarea-post-title:focus {
+.textarea-post-title:focus {
     background-color: var(--gray900);
     border: 0.0625rem solid var(--gra1600);
 }
 
-#textarea-post-content {
+.textarea-post-content {
     height: 22.25rem;
     padding: 0.5rem 1rem;
     border-radius: var(--radius);
@@ -80,7 +85,7 @@
     margin-bottom: 2.75rem;
 }
 
-#textarea-post-content:focus {
+.textarea-post-content:focus {
     background-color: var(--gray900);
     border: 0.0625rem solid var(--gra1600);
 }

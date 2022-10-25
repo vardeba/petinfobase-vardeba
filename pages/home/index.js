@@ -1,6 +1,5 @@
-import { dinamicModal, showPostModal, editPostModal, createPostModal, deletePostModal, postDeletedModal } from "../../scripts/modal.js";
+import { dinamicModal, showPostModal, editPostModal, createPostModal, deletePostModal, postDeletedModal, } from "../../scripts/modal.js";
 import { showPost } from "../../scripts/render.js";
-import { posts, user } from "../../scripts/database.js";
 
 export const baseURL = "http://localhost:3333/";
 
@@ -86,7 +85,7 @@ export async function createPost(){
     })
 }
 
-createPost();
+await createPost();
 
 async function getTokenFromLocalStorage(){
     const localStorageTokenJSON = localStorage.getItem('userToken');
@@ -143,39 +142,46 @@ export async function getPostsOnAPI(){
     return posts;
 };
 
-export async function createPostOnAPI(data){
-    const token = await getTokenFromLocalStorage();
-    const response = await fetch(`${baseURL}posts/create`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token.token}`,
-        },
-        body: JSON.stringify(data),
-    })
-    .then((response) => response.json())
-    .then((responseJson) => responseJson)
-    .catch((error) => error);
+// const bodyex = {
+//     title: "teste 1",
+//     content: "teste 1"
+// };
 
-    return response;
-};
+// createPostOnAPI(bodyex);
 
-export async function updatePostOnAPI(data, postId){
-    const token = await getTokenFromLocalStorage();
-    const response = await fetch(`${baseURL}posts/${postId}`, {
-        method: "PATCH",
-        headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token.token}`,
-        },
-        body: JSON.stringify(data),
-    })
-    .then((response) => response.json())
-    .then((responseJson) => responseJson)
-    .catch((error) => error);
+// export async function createPostOnAPI(data){
+//     const token = await getTokenFromLocalStorage();
+//     const response = await fetch(`${baseURL}posts/create`, {
+//         method: "POST",
+//         headers: {
+//             "Content-Type": "application/json",
+//             Authorization: `Bearer ${token.token}`,
+//         },
+//         body: JSON.stringify(data),
+//     })
+//     .then((response) => response.json())
+//     .then((responseJson) => responseJson)
+//     .catch((error) => error);
 
-    return response;
-};
+//     return response;
+// };
+
+// export async function updatePostOnAPI(data, postId){
+//     const token = await getTokenFromLocalStorage();
+//     const response = await fetch(`${baseURL}posts/${postId}`, {
+//         method: "PATCH",
+//         headers: {
+//             "Content-Type": "application/json",
+//             Authorization: `Bearer ${token.token}`,
+//         },
+//         body: JSON.stringify(data),
+//     })
+//     .then((response) => response.json())
+//     .then((responseJson) => responseJson)
+//     .catch((error) => error);
+
+//     return response;
+// };
 
 export async function deletePostOnAPI(postId){
     const token = await getTokenFromLocalStorage();
@@ -192,7 +198,6 @@ export async function deletePostOnAPI(postId){
 
     return response;
 };
-
 
 
 

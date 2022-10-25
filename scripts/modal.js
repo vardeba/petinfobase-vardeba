@@ -1,5 +1,7 @@
 const body = document.querySelector('body');
 
+const baseURL = "http://localhost:3333/";
+
 export function dinamicModal(content){
     const backgroudContainer = document.createElement('section');
     backgroudContainer.classList.add('backgroundModal')
@@ -85,7 +87,7 @@ export function editPostModal(post){
     h2EditPostTitle.innerText = 'Edição';
 
     const formEditPost = document.createElement('form');
-    formEditPost.classList.add('form-post');
+    formEditPost.classList.add('form-edit');
 
     const labelEditPostTitle = document.createElement('label');
     labelEditPostTitle.classList.add('label-modal-edit');
@@ -93,8 +95,9 @@ export function editPostModal(post){
     labelEditPostTitle.innerText = 'Tìtulo to post';
 
     const textareaEditPostTitle = document.createElement('textarea');
+    textareaEditPostTitle.classList.add('textarea-post-title');
     textareaEditPostTitle.setAttribute('name', "textarea-post-title");
-    textareaEditPostTitle.setAttribute('id', "textarea-post-title");
+    textareaEditPostTitle.setAttribute('id', "title");
     textareaEditPostTitle.setAttribute('cols', "100");
     textareaEditPostTitle.setAttribute('rows', "1");
     textareaEditPostTitle.innerText = `${post.title}`;
@@ -105,8 +108,9 @@ export function editPostModal(post){
     labelEditPostContent.innerText = 'Conteúdo do post';
 
     const textareaEditPostContent = document.createElement('textarea');
+    textareaEditPostContent.classList.add("textarea-post-content");
     textareaEditPostContent.setAttribute('name', "textarea-post-content");
-    textareaEditPostContent.setAttribute('id', "textarea-post-content");
+    textareaEditPostContent.setAttribute('id', "content");
     textareaEditPostContent.setAttribute('cols', "100");
     textareaEditPostContent.setAttribute('rows', "15");
     textareaEditPostContent.innerText = `${post.content}`;
@@ -129,7 +133,22 @@ export function editPostModal(post){
     buttonEditPostSave.setAttribute('type', 'submit');
     buttonEditPostSave.innerText = 'Salvar Alterações';
     buttonEditPostSave.addEventListener('click', (event) => {
-        event.preventDefault();
+        const idPost = document.querySelector('.edit-post-modal')
+        console.log(idPost);
+        const form = document.querySelector('.form-edit');
+        const elements = [...form.elements];
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const body = {};
+            elements.forEach((elem) => {
+                if (elem.tagName == "TEXTAREA" && elem.value !== ""){
+                    body[elem.id] = elem.value;
+                };
+            });
+            console.log(body);
+            await updatePostOnAPI(body, idPost.id);
+            window.location.replace('./index.html')
+        });
     })
 
     divEditPostButtons.append(buttonEditPostCancel, buttonEditPostSave);
@@ -140,12 +159,14 @@ export function editPostModal(post){
 }
 
 export function createPostModal(){
+    const ulPosts = document.querySelector('.ul__posts');
+
     const divCreatePost = document.createElement('div');
     divCreatePost.classList.add('edit-post-modal');
 
     const h2CreatePostTitle = document.createElement('h2');
     h2CreatePostTitle.classList.add('edit-post-modal-title');
-    h2CreatePostTitle.innerText = 'Edição';
+    h2CreatePostTitle.innerText = 'Criando novo post';
 
     const formCreatePost = document.createElement('form');
     formCreatePost.classList.add('form-post');
@@ -156,8 +177,9 @@ export function createPostModal(){
     labelCreatePostTitle.innerText = 'Tìtulo to post';
 
     const textareaCreatePostTitle = document.createElement('textarea');
+    textareaCreatePostTitle.classList.add("textarea-post-title");
     textareaCreatePostTitle.setAttribute('name', "textarea-post-title");
-    textareaCreatePostTitle.setAttribute('id', "textarea-post-title");
+    textareaCreatePostTitle.setAttribute('id', "title");
     textareaCreatePostTitle.setAttribute('cols', "100");
     textareaCreatePostTitle.setAttribute('rows', "1");
 
@@ -167,8 +189,9 @@ export function createPostModal(){
     labelCreatePostContent.innerText = 'Conteúdo do post';
 
     const textareaCreatePostContent = document.createElement('textarea');
+    textareaCreatePostContent.classList.add("textarea-post-content");
     textareaCreatePostContent.setAttribute('name', "textarea-post-content");
-    textareaCreatePostContent.setAttribute('id', "textarea-post-content");
+    textareaCreatePostContent.setAttribute('id', "content");
     textareaCreatePostContent.setAttribute('cols', "100");
     textareaCreatePostContent.setAttribute('rows', "15");
 
@@ -189,7 +212,20 @@ export function createPostModal(){
     buttonCreatePostSave.setAttribute('type', "submit");
     buttonCreatePostSave.innerText = 'Criar Post';
     buttonCreatePostSave.addEventListener('click', (event) => {
-        event.preventDefault();
+        // event.preventDefault();
+        const form = document.querySelector('.form-post');
+        const elements = [...form.elements];
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const body = {};
+            elements.forEach((elem) => {
+                if (elem.tagName == "TEXTAREA" && elem.value !== ""){
+                    body[elem.id] = elem.value;
+                };
+            });
+            await createPostOnAPI(body);
+            window.location.replace('./index.html')
+        });
     });
 
     divCreatePostButtons.append(buttonCreatePostCancel, buttonCreatePostSave);
@@ -345,6 +381,60 @@ export function alreadyModal(){
 
     return divAlreadyModal;
 }
+
+
+
+async function getTokenFromLocalStorage(){
+    const localStorageTokenJSON = localStorage.getItem('userToken');
+    if (localStorageTokenJSON){
+        const localStorageData = JSON.parse(localStorageTokenJSON);
+        return localStorageData;
+    };
+}
+
+
+
+async function createPostOnAPI(data){
+    const token = await getTokenFromLocalStorage();
+    const response = await fetch(`${baseURL}posts/create`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token.token}`,
+        },
+        body: JSON.stringify(data),
+    })
+    .then((response) => response.json())
+    .then((responseJson) => responseJson)
+    .catch((error) => error);
+    return response;
+};
+
+async function updatePostOnAPI(data, postId){
+    const token = await getTokenFromLocalStorage();
+    const response = await fetch(`${baseURL}posts/${postId}`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token.token}`,
+        },
+        body: JSON.stringify(data),
+    })
+    .then((response) => response.json())
+    .then((responseJson) => responseJson)
+    .catch((error) => error);
+    return response;
+};
+
+
+
+
+
+
+
+
+
+
 
 
 
